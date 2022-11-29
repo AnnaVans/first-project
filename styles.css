@@ -1,0 +1,44 @@
+body {
+  font-family: "Questrial", sans-serif;
+  color: white;
+  background-image: url(imgs/zimahory.jpg);
+  background-size: cover;
+}
+
+h1,
+h2,
+h3 {
+  display: block;
+
+  text-align: center;
+}
+h1 {
+  text-transform: capitalize;
+  padding: 60px 0 0 0;
+  font-size: 16px;
+}
+
+h2 {
+  font-size: 60px;
+  font-weight: bold;
+}
+h3 {
+  font-size: 12px;
+}
+
+ul {
+  list-style: none;
+  line-height: 50px;
+  font-size: 25px;
+}
+
+.mb-3 {
+  position: relative;
+  top: 10px;
+  left: 100px;
+}
+
+.fahrenheit,
+.celsius {
+  cursor: pointer;
+}
