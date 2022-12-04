@@ -32,6 +32,10 @@ ul {
   font-size: 25px;
 }
 
+a {
+  color: white;
+}
+
 .mb-3 {
   position: relative;
   top: 10px;
@@ -47,8 +51,4 @@ ul {
   display: block;
   text-align: center;
   text-decoration: none;
-}
-
-a {
-  color: white;
 }
