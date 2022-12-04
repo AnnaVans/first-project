@@ -27,6 +27,22 @@ function showTemperature(response) {
   let feelsTemp = Math.round(response.data.main.feels_like);
   let apparentTemp = document.querySelector("#feelsLike");
   apparentTemp.innerHTML = `${feelsTemp}`;
+
+  let wind = Math.round(response.data.wind.speed);
+  let windSpeed = document.querySelector("#windSpeed");
+  windSpeed.innerHTML = `${wind}`;
+
+  let humidity = response.data.main.humidity;
+  let actualHumidity = document.querySelector("#humidity");
+  actualHumidity.innerHTML = `${humidity}`;
+
+  let pressure = response.data.main.pressure;
+  let actualPressure = document.querySelector("#pressure");
+  actualPressure.innerHTML = `${pressure}`;
+
+  let visibility = response.data.visibility;
+  let actualVisibility = document.querySelector("#visibility");
+  actualVisibility.innerHTML = `${visibility}`;
 }
 
 let form = document.querySelector("#location");
