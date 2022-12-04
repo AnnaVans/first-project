@@ -11,8 +11,6 @@ function findCity(city) {
   axios.get(apiCall).then(showTemperature);
 }
 
-findCity("Bratislava");
-
 function showTemperature(response) {
   let actualTemperature = document.querySelector(".actualTemp");
   actualTemperature.innerHTML = Math.round(response.data.main.temp);
@@ -43,10 +41,35 @@ function showTemperature(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+
+  celsiusTemp = response.data.main.temp;
 }
+
+function convertF(event) {
+  event.preventDefault();
+
+  let temperature = document.querySelector(".actualTemp");
+  temperature.innerHTML = Math.round(celsiusTemp * 1.8 + 32);
+}
+
+function convertC(event) {
+  event.preventDefault();
+  let temperature = document.querySelector(".actualTemp");
+  temperature.innerHTML = Math.round(celsiusTemp);
+}
+
+let celsiusTemp = null;
 
 let form = document.querySelector("#location");
 form.addEventListener("submit", search);
+
+let fahrenheit = document.querySelector(".fahrenheit");
+fahrenheit.addEventListener("click", convertF);
+
+let celsius = document.querySelector(".celsius");
+celsius.addEventListener("click", convertC);
+
+findCity("Bratislava");
 
 let currentTime = document.querySelector(".time");
 let now = new Date();
