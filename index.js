@@ -13,36 +13,30 @@ function findCity(city) {
 
 function showTemperature(response) {
   console.log(response);
-  let temperature = Math.round(response.data.main.temp);
-  let actualTemperature = document.querySelector(".actualTemp");
-  actualTemperature.innerHTML = `${temperature}`;
 
-  let desctiption = response.data.weather[0].main;
+  let actualTemperature = document.querySelector(".actualTemp");
+  actualTemperature.innerHTML = Math.round(response.data.main.temp);
+
   let actualDesctiption = document.querySelector(".description");
-  actualDesctiption.innerHTML = `${desctiption}`;
+  actualDesctiption.innerHTML = response.data.weather[0].main;
 
   let cityElement = document.querySelector("h1");
   cityElement.innerHTML = `${response.data.name}`;
 
-  let feelsTemp = Math.round(response.data.main.feels_like);
   let apparentTemp = document.querySelector("#feelsLike");
-  apparentTemp.innerHTML = `${feelsTemp}`;
+  apparentTemp.innerHTML = Math.round(response.data.main.feels_like);
 
-  let wind = Math.round(response.data.wind.speed);
   let windSpeed = document.querySelector("#windSpeed");
-  windSpeed.innerHTML = `${wind}`;
+  windSpeed.innerHTML = Math.round(response.data.wind.speed);
 
-  let humidity = response.data.main.humidity;
   let actualHumidity = document.querySelector("#humidity");
-  actualHumidity.innerHTML = `${humidity}`;
+  actualHumidity.innerHTML = response.data.main.humidity;
 
-  let pressure = response.data.main.pressure;
   let actualPressure = document.querySelector("#pressure");
-  actualPressure.innerHTML = `${pressure}`;
+  actualPressure.innerHTML = response.data.main.pressure;
 
-  let visibility = response.data.visibility;
   let actualVisibility = document.querySelector("#visibility");
-  actualVisibility.innerHTML = `${visibility}`;
+  actualVisibility.innerHTML = response.data.visibility;
 }
 
 let form = document.querySelector("#location");
