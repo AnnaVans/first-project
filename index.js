@@ -11,6 +11,8 @@ function findCity(city) {
   axios.get(apiCall).then(showTemperature);
 }
 
+findCity("Bratislava");
+
 function showTemperature(response) {
   let actualTemperature = document.querySelector(".actualTemp");
   actualTemperature.innerHTML = Math.round(response.data.main.temp);
