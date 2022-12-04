@@ -12,6 +12,7 @@ function findCity(city) {
 }
 
 function showTemperature(response) {
+  console.log(response);
   let temperature = Math.round(response.data.main.temp);
   let actualTemperature = document.querySelector(".actualTemp");
   actualTemperature.innerHTML = `${temperature}`;
