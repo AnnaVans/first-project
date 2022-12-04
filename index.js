@@ -23,6 +23,10 @@ function showTemperature(response) {
 
   let cityElement = document.querySelector("h1");
   cityElement.innerHTML = `${response.data.name}`;
+
+  let feelsTemp = Math.round(response.data.main.feels_like);
+  let apparentTemp = document.querySelector("#feelsLike");
+  apparentTemp.innerHTML = `${feelsTemp}`;
 }
 
 let form = document.querySelector("#location");
