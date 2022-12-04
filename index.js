@@ -30,12 +30,6 @@ function showTemperature(response) {
   let actualHumidity = document.querySelector("#humidity");
   actualHumidity.innerHTML = response.data.main.humidity;
 
-  let actualPressure = document.querySelector("#pressure");
-  actualPressure.innerHTML = response.data.main.pressure;
-
-  let actualVisibility = document.querySelector("#visibility");
-  actualVisibility.innerHTML = response.data.visibility;
-
   let weatherIcon = document.querySelector("#icon");
   weatherIcon.setAttribute(
     "src",
