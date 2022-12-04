@@ -12,8 +12,6 @@ function findCity(city) {
 }
 
 function showTemperature(response) {
-  console.log(response);
-
   let actualTemperature = document.querySelector(".actualTemp");
   actualTemperature.innerHTML = Math.round(response.data.main.temp);
 
@@ -37,6 +35,12 @@ function showTemperature(response) {
 
   let actualVisibility = document.querySelector("#visibility");
   actualVisibility.innerHTML = response.data.visibility;
+
+  let weatherIcon = document.querySelector("#icon");
+  weatherIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 let form = document.querySelector("#location");
