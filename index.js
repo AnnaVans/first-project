@@ -11,6 +11,13 @@ function findCity(city) {
   axios.get(apiCall).then(showTemperature);
 }
 
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=d4cf96dc0f77bbdd4dbebeed26b58445`;
+
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function showTemperature(response) {
   let actualTemperature = document.querySelector(".actualTemp");
   actualTemperature.innerHTML = Math.round(response.data.main.temp);
@@ -37,6 +44,8 @@ function showTemperature(response) {
   );
 
   celsiusTemp = response.data.main.temp;
+
+  getForecast(response.data.coord);
 }
 
 function convertF(event) {
@@ -52,7 +61,8 @@ function convertC(event) {
   temperature.innerHTML = Math.round(celsiusTemp);
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data);
   let forecastElement = document.querySelector("#forecast");
 
   let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
