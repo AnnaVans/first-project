@@ -49,10 +49,11 @@ a {
 
 .sourcecode {
   display: block;
-
   text-decoration: none;
   position: fixed;
-  bottom: 0;
+  bottom: 0px;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .weather-forecast {
