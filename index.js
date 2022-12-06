@@ -13,7 +13,6 @@ function findCity(city) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "1a2b7258ebd456c01aef9175dfe8b709";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=${apiKey}`;
 
@@ -64,26 +63,32 @@ function convertC(event) {
 }
 
 function displayForecast(response) {
-  let forecastElement = document.querySelector("#forecast");
   let forecast = response.data.daily;
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
+
+  let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (forecastDay, index) {
+  forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
       forecastHTML =
         forecastHTML +
         `
       <div class="col-2">
-        <div class="weather-forecast-date">${forecastDay.dt}</div>
+        <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
         <img
-          src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
+          src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
           alt=""
           width="42"
         />
         <div class="weather-forecast-temperatures">
-          <span class="weather-forecast-temperature-max"> ${forecastDay.temp.max}° </span>
-          <span class="weather-forecast-temperature-min"> ${forecastDay.temp.min}° </span>
+          <span class="weather-forecast-temperature-max"> ${Math.round(
+            forecastDay.temp.max
+          )}° </span>
+          <span class="weather-forecast-temperature-min"> ${Math.round(
+            forecastDay.temp.min
+          )}° </span>
         </div>
       </div>
   `;
@@ -106,7 +111,6 @@ let celsius = document.querySelector(".celsius");
 celsius.addEventListener("click", convertC);
 
 findCity("Bratislava");
-displayForecast();
 
 let currentTime = document.querySelector(".time");
 let now = new Date();
