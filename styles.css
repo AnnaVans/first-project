@@ -42,11 +42,6 @@ a {
   left: 110px;
 }
 
-.fahrenheit,
-.celsius {
-  cursor: pointer;
-}
-
 .sourcecode {
   display: block;
   text-decoration: none;

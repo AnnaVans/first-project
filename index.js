@@ -49,19 +49,6 @@ function showTemperature(response) {
   getForecast(response.data.coord);
 }
 
-function convertF(event) {
-  event.preventDefault();
-
-  let temperature = document.querySelector(".actualTemp");
-  temperature.innerHTML = Math.round(celsiusTemp * 1.8 + 32);
-}
-
-function convertC(event) {
-  event.preventDefault();
-  let temperature = document.querySelector(".actualTemp");
-  temperature.innerHTML = Math.round(celsiusTemp);
-}
-
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -111,12 +98,6 @@ let celsiusTemp = null;
 
 let form = document.querySelector("#location");
 form.addEventListener("submit", search);
-
-let fahrenheit = document.querySelector(".fahrenheit");
-fahrenheit.addEventListener("click", convertF);
-
-let celsius = document.querySelector(".celsius");
-celsius.addEventListener("click", convertC);
 
 findCity("Bratislava");
 
