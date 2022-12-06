@@ -7,13 +7,15 @@ function search(event) {
 
 function findCity(city) {
   let units = "metric";
-  let apiCall = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=4f6484d9a7c6987f3133d7c6fd4bd3b8`;
+  let apiKey = "4f6484d9a7c6987f3133d7c6fd4bd3b8";
+  let apiCall = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
   axios.get(apiCall).then(showTemperature);
 }
 
 function getForecast(coordinates) {
   console.log(coordinates);
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=d4cf96dc0f77bbdd4dbebeed26b58445`;
+  let apiKey = "d4cf96dc0f77bbdd4dbebeed26b58445";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=${apiKey}`;
 
   axios.get(apiUrl).then(displayForecast);
 }
