@@ -14,7 +14,7 @@ function findCity(city) {
 
 function getForecast(coordinates) {
   console.log(coordinates);
-  let apiKey = "d4cf96dc0f77bbdd4dbebeed26b58445";
+  let apiKey = "1a2b7258ebd456c01aef9175dfe8b709";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=${apiKey}`;
 
   axios.get(apiUrl).then(displayForecast);
