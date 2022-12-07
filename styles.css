@@ -1,4 +1,5 @@
 body {
+  height: 100%;
   font-family: "Questrial", sans-serif;
   color: white;
   background-image: url("https://www.butikovo.sk//uploads/files/shares/zimahory.jpg");
@@ -36,10 +37,8 @@ a {
   color: white;
 }
 
-.mb-3 {
+.location {
   position: relative;
-  top: 10px;
-  left: 110px;
 }
 
 .sourcecode {
